@@ -86,7 +86,18 @@ public class MainMenu extends JFrame implements ActionListener {
         customerMenu.addSeparator();
 
         createCustomer = new JMenuItem("Quit");
-        createCustomer.addActionListener(this);
+        createCustomer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int confirm = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit?",
+                        "Confirm",JOptionPane.YES_NO_OPTION);
+                if (confirm == JOptionPane.YES_OPTION){
+                    System.exit(0);
+                }
+                else
+                    MainMenu.super.setDefaultCloseOperation(MainMenu.DO_NOTHING_ON_CLOSE);
+            }
+        });
         customerMenu.add(createCustomer);
 
     }
@@ -103,7 +114,18 @@ public class MainMenu extends JFrame implements ActionListener {
         makeReservation.addSeparator();
 
         Reservation = new JMenuItem("Quit");
-        Reservation.addActionListener(this);
+        Reservation.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int confirm = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit?",
+                        "Confirm",JOptionPane.YES_NO_OPTION);
+                if (confirm == JOptionPane.YES_OPTION){
+                    System.exit(0);
+                }
+                else
+                    MainMenu.super.setDefaultCloseOperation(MainMenu.DO_NOTHING_ON_CLOSE);
+            }
+        });
         makeReservation.add(Reservation);
 
     }
@@ -120,8 +142,23 @@ public class MainMenu extends JFrame implements ActionListener {
         makeReservation.addSeparator();
 
         view = new JMenuItem("Quit");
-        view.addActionListener(this);
+        view.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int confirm = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit?",
+                        "Confirm",JOptionPane.YES_NO_OPTION);
+                if (confirm == JOptionPane.YES_OPTION){
+                    System.exit(0);
+                }
+                else
+                    MainMenu.super.setDefaultCloseOperation(MainMenu.DO_NOTHING_ON_CLOSE);
+            }
+        });
         viewMenu.add(view);
+
+
+
+
     }
 
 

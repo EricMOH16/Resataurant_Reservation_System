@@ -5,6 +5,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.regex.Pattern;
+
 
 public class Login {
     JTextField usernameTextField;
@@ -32,10 +34,46 @@ public class Login {
         //Adding Button
         JButton loginButton = new JButton("Login");
         loginWindow.add(loginButton);
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
-        ButtonEventHandler loginHandler = new ButtonEventHandler();
-        //Creation of ActionListener for button
-        loginButton.addActionListener(loginHandler);
+
+                    if (e.getSource() == usernameTextField)
+                    {
+                        userPasswordTextField.requestFocus();
+                    }
+                    if (e.getSource() == userPasswordTextField)
+                    {
+                        //took a long time to remember password is char NOT TEXT!
+                        char[] passwordCharacters = userPasswordTextField.getPassword();
+                        String passwordText = new String(passwordCharacters);
+
+                        if (usernameTextField.getText().equals("") || passwordText.equals(""))
+                        {
+                            JOptionPane.showMessageDialog(null, "All fields must be filled!");
+
+                        }
+                        else
+                            JOptionPane.showMessageDialog(null,"Welcome " + usernameTextField.getText());
+
+                             new MainMenu().setVisible(true);
+
+                    }
+
+
+
+
+
+
+                else
+                    JOptionPane.showMessageDialog(null,"Welcome " + usernameTextField.getText());
+                    new MainMenu().setVisible(true);
+
+            }
+        });
+
+
 
         loginWindow.setVisible(true);
 
@@ -46,38 +84,6 @@ public class Login {
         Login usernameAndPassword = new Login();
     }
 
-    private class ButtonEventHandler implements ActionListener{
-
-        public void actionPerformed(ActionEvent e)
-        {
-            if (e.getSource() == usernameTextField)
-            {
-                userPasswordTextField.requestFocus();
-            }
-            if (e.getSource() == userPasswordTextField)
-            {
-                //password is a char! Change it to a string
-                char[] passwordChar = userPasswordTextField.getPassword();
-                String passwordFieldText = new String(passwordChar);
-
-                //Putting in my all fields must be filled validation
-                if (usernameTextField.getText().equals("")){
-                    JOptionPane.showMessageDialog(null,"Invalid Username!");
-                    if (passwordFieldText.equals("")) {
-                        JOptionPane.showMessageDialog(null, "You must enter a valid password!");
-                        if (usernameTextField.getText().equals("") && passwordFieldText.equals(""))
-                            JOptionPane.showMessageDialog(null,"All Fields must be filled!");
-                        }
-                        else
-                            JOptionPane.showMessageDialog(null,"Welcome to the system " +
-                                    usernameTextField.getText());
-                    }
-                }
-            }
-
-
-
-        }
     }
 
 
