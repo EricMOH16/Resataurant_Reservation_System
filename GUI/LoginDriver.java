@@ -1,18 +1,20 @@
-/*This is the GUI creation for my login JFrame and the validation that will be performed
+package GUI;/*This is the GUI creation for my login JFrame and the validation that will be performed
   to allow the user to login*/
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
 
 
-public class Login {
+public class LoginDriver{
     JTextField usernameTextField;
     JPasswordField userPasswordTextField;
+    ArrayList<AddCustomer> customer = new ArrayList<>();
 
-    public Login()
+
+    public LoginDriver()
     {
         //Window
         JFrame loginWindow = new JFrame("Welcome");
@@ -52,24 +54,12 @@ public class Login {
                         if (usernameTextField.getText().equals("") || passwordText.equals(""))
                         {
                             JOptionPane.showMessageDialog(null, "All fields must be filled!");
-
                         }
-                        else
-                            JOptionPane.showMessageDialog(null,"Welcome " + usernameTextField.getText());
-
-                             new MainMenu().setVisible(true);
-
                     }
+                    else
+                        JOptionPane.showMessageDialog(null,"Welcome " + usernameTextField.getText());
 
-
-
-
-
-
-                else
-                    JOptionPane.showMessageDialog(null,"Welcome " + usernameTextField.getText());
-                    new MainMenu().setVisible(true);
-
+                        new MainMenu();
             }
         });
 
@@ -81,7 +71,7 @@ public class Login {
 
     public static void main(String[] args)
     {
-        Login usernameAndPassword = new Login();
+        LoginDriver usernameAndPassword = new LoginDriver();
     }
 
     }
