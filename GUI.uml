@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>GUI</OriginalElement>
+  <nodes>
+    <node x="312.0" y="343.0">GUI.AddCustomer</node>
+    <node x="0.0" y="618.0">GUI.MakeReservation</node>
+    <node x="552.0" y="618.0">GUI.LoginDriver</node>
+    <node x="0.0" y="0.0">GUI.Reservation</node>
+    <node x="0.0" y="343.0">GUI.MainMenu</node>
+    <node x="367.0" y="0.0">GUI.Customer</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic" zoom="0.8817966903073287" showDependencies="false" x="409.5" y="413.0" />
+  <SelectedNodes>
+    <node>GUI.MakeReservation</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
