@@ -10,8 +10,7 @@ public class MainMenu extends JFrame implements ActionListener {
     JMenu customerMenu;
     JMenu makeReservation;
     JMenu viewMenu;
-    ArrayList<AddCustomer> customers = new ArrayList<>();
-    ArrayList<MakeReservation> reservations = new ArrayList<>();
+
 
     public MainMenu(){
 
@@ -173,10 +172,44 @@ public class MainMenu extends JFrame implements ActionListener {
         addCustomerBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new AddCustomer();
-                setVisible(false);
-            }
+                ArrayList<Customer> customers = new ArrayList<>();
+                boolean isValid = false;
+                String firstName = JOptionPane.showInputDialog(null,"Please enter firstname");
+                //I tried my best to connect my form to the validation but could not. so I did it the easier way
+                while (!isValid){
+                    if (!firstName.equals("")) {
+                        for (int i = 0; i < firstName.length() && (Character.isLetter(firstName.charAt(i))); ++i) {
+                            String lastname = JOptionPane.showInputDialog(null, "Please enter customers last name");
+                            if (!lastname.equals("")) {
+                                for (int j = 0; i < lastname.length() && (Character.isLetter(lastname.charAt(j))); ++j) {
+                                    String email = JOptionPane.showInputDialog(null, "Please enter an email");
+                                    if (!email.equals("")){
+                                        for (int k = 0; k<email.length() && Character.isLetter(email.charAt(k)) && email.charAt(i) == '@'&& email.contains(".com")
+                                                ;++k){
+                                           String phoneNumber= JOptionPane.showInputDialog(null,"Please enter a phone number");
+                                           isValid = true;
+
+
+                                        }
+                                    }
+                                    else
+                                        JOptionPane.showMessageDialog(null,"Invalid Phone Number");
+                                }
+
+                            }
+                            else
+                                JOptionPane.showMessageDialog(null,"Invalid Email");
+                        }
+                    }
+                    else
+                        JOptionPane.showMessageDialog(null,"Invalid firstname!");
+                        }
+
+                    }
+
+
         });
+
         return addCustomer;
     }
 
@@ -195,16 +228,16 @@ public class MainMenu extends JFrame implements ActionListener {
                     MainMenu.super.setDefaultCloseOperation(MainMenu.DO_NOTHING_ON_CLOSE);
             }
         });
+        quit.add(quitBtn);
 
         return quit;
     }
-    public void addCustomer()
-    {
 
-    }
+    //I tried my best to connect my form to the validation but could not. so I did it the easier way
 
 
-    }
+
+
 
 
 }

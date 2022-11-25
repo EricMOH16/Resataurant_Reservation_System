@@ -1,3 +1,7 @@
+package GUI;
+
+import GUI.Customer;
+
 public class Reservation {
     private float time;
     private String date;
@@ -51,5 +55,16 @@ public class Reservation {
 
     public void setTableNumber(int tableNumber) {
         this.tableNumber = tableNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "GUI.Reservation{" +
+                "time=" + time +
+                ", date='" + date + '\'' +
+                ", customer=" + customer +
+                ", partySize=" + partySize +
+                ", tableNumber=" + tableNumber +
+                '}';
     }
 }

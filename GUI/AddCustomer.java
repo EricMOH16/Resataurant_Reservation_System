@@ -1,16 +1,16 @@
 package GUI;
-
+//layout is strange because i lost it all and had to copy my latest commit from git
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-//Don't forget to add button this time!
+import java.util.ArrayList;
 public class AddCustomer extends JFrame {
     private Insets normalInsets = new Insets(10,10,0,10);
     private Insets topInsets = new Insets(10,10,0,10);
 
-    public AddCustomer(){
+//Don't forget to add button this time!
+public AddCustomer(){
         //Creation of add customer frame
         super("Add Customer");
         JPanel customerPanel = new JPanel();
@@ -30,16 +30,16 @@ public class AddCustomer extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
-    }
+        }
 
-    private JPanel createTitlePanel(){
+private JPanel createTitlePanel(){
         JPanel titlePanel = new JPanel();
 
         JLabel titleLabel = new JLabel(("Enter Customer Details Below"));
         titlePanel.add(titleLabel);
         return titlePanel;
-    }
-    private JPanel createDetailsPanel(){
+        }
+private JPanel createDetailsPanel(){
         JPanel detailsPanel = new JPanel();
         detailsPanel.setLayout(new GridBagLayout());
 
@@ -70,78 +70,78 @@ public class AddCustomer extends JFrame {
         addComponent(detailsPanel,phoneNumberField,1,gridY++,1,1,normalInsets,GridBagConstraints.LINE_START,GridBagConstraints.HORIZONTAL);
 
         return detailsPanel;
-    }
+        }
 
-    public JPanel createSubmitPanel()
-    {
+public JPanel createSubmitPanel()
+        {
         JPanel submitPanel = new JPanel();
         JButton addCustomer = new JButton("Add Customer");
         submitPanel.add(addCustomer);
 
         return submitPanel;
 
-    }
+        }
 
 
-    private void addComponent(Container container,Component component,int gridX,int gridY,int gridWidth,int gridHeight,Insets insets,
-                              int anchor,int fill){
+private void addComponent(Container container,Component component,int gridX,int gridY,int gridWidth,int gridHeight,Insets insets,
+        int anchor,int fill){
 
         GridBagConstraints GBC = new GridBagConstraints(gridX,gridY,gridWidth,gridHeight,0.0,0.0,anchor,fill,insets,
-                0,0);
+        0,0);
 
         container.add(component,GBC);
 
-    }
-    //forgot to add a cancel button
-    public JPanel cancelButton(){
+        }
+//forgot to add a cancel button
+public JPanel cancelButton(){
         JPanel cancelPanel = new JPanel();
         JButton cancelButton = new JButton("Cancel");
         cancelPanel.add(cancelButton);
 
         cancelButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int confirm = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit?",
-                        "Confirm",JOptionPane.YES_NO_OPTION);
+@Override
+public void actionPerformed(ActionEvent e) {
+        int confirm = JOptionPane.showConfirmDialog(null,"Are you sure you want to exit?",
+        "Confirm",JOptionPane.YES_NO_OPTION);
 
-                if (confirm == JOptionPane.YES_OPTION){
-                    setVisible(false);
-                    new MainMenu().setVisible(true);
-                }
-                else
-                    setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-            }
+        if (confirm == JOptionPane.YES_OPTION){
+        setVisible(false);
+        new MainMenu().setVisible(true);
+        }
+        else
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        }
         });
 
         return cancelPanel;
-    }
+        }
 
-    public JPanel returnButton(){
+public JPanel returnButton(){
         JPanel returnPanel = new JPanel();
         JButton returnButton = new JButton("Return");
         returnPanel.add(returnButton);
         returnButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                int choice = JOptionPane.showConfirmDialog(null,"Are you sure you want to return to the main menu?",
-                        "Return to Main Menu",JOptionPane.YES_NO_OPTION);
-                if (choice == JOptionPane.YES_OPTION){
-                    MainMenu mainMenu = new MainMenu();
-                    setVisible(false);
-                }
-                else
-                    setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-            }
+@Override
+public void actionPerformed(ActionEvent e) {
+        int choice = JOptionPane.showConfirmDialog(null,"Are you sure you want to return to the main menu?",
+        "Return to Main Menu",JOptionPane.YES_NO_OPTION);
+        if (choice == JOptionPane.YES_OPTION){
+        MainMenu mainMenu = new MainMenu();
+        setVisible(false);
+        }
+        else
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        }
         });
 
         return returnPanel;
-    }
+        }
 
-    public static void main(String[] args) {
-       AddCustomer addCustomer = new AddCustomer();
+public static void main(String[] args) {
+        AddCustomer addCustomer = new AddCustomer();
 
-    }
+        }
 
 
 
-}
+        }
